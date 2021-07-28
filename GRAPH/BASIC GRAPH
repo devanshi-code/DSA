@@ -1,0 +1,45 @@
+//Learning GRAPHS from scratch
+//GRAPHS REPRESNTATIONS
+//LIST
+int main() {
+    unordered_map<int,list<int>>graph;
+    graph[0]={2,3};
+    graph[1]={2};
+    graph[2]={0,1,3};
+    graph[3]={0,2};
+    
+  for(auto a:graph)  
+  {
+      cout<<a.first<<":";
+      for(auto b:a.second)cout<<b<<" ";
+      cout<<endl;
+  } 
+}
+//ANOTHER WAY
+int main() {
+    vector<list<int>>graph(4);
+    graph[0]={2,3};
+    graph[1]={2};
+    graph[2]={0,1,3};
+    graph[3]={0,2};
+    
+  for(int i=0;i<graph.size();i++)  
+  {
+      cout<<i<<":";
+      for(auto b:graph[i])cout<<b<<" ";
+      cout<<endl;
+  } 
+}
+
+//for storing STRING
+int main() {
+    map<string,list<string>>graph;
+    graph[DELHI]={"ABC","DEF"};
+    
+  for(auto a:graph)  
+  {
+      cout<<a.first<<":";
+      for(auto b:a.second)cout<<b<<" ";
+      cout<<endl;
+  } 
+}
