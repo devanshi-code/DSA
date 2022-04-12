@@ -1,0 +1,29 @@
+#include<iostream>
+using namespace std;
+#define max 1000  //considering 1000 elements are taken into consideration
+
+bool has[MAX+1][2];//taking max+1 as indext starts from 0 and 2 is taken to store positive and negative no seperately
+bool search(int x)
+{
+  if(x>=0){
+   if(has[x][0]==1)
+     return true;
+   else
+   return false;
+}
+ X = abs(X);
+    if (has[X][1] == 1)
+        return true;
+  
+    return false;
+}
+void insert(int arr[],int n)
+{
+  for(int i=0;i<n;i++)
+  {
+     if(a[i]>=0)
+        has[a[i]][0]=1;
+     else
+        has[abs(a[i])][1]=1;
+}
+} 
