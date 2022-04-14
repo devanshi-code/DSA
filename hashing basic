@@ -27,3 +27,15 @@ void insert(int arr[],int n)
         has[abs(a[i])][1]=1;
 }
 } 
+int main()
+{
+    int a[] = { -1, 9, -5, -8, -5, -2 };
+    int n = sizeof(a)/sizeof(a[0]);
+    insert(a, n);
+    int X = -5;
+    if (search(X) == true)
+       cout << "Present"; 
+    else
+       cout << "Not Present";
+    return 0;
+}
