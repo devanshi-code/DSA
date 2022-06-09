@@ -1,0 +1,63 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void delete_(vector<int>&v,int &i)
+{
+    swap(v[1],v[i]);
+    i--;
+    int temp=1;
+    while((temp*2<=i) || (temp*2+1<=i))
+    {   
+        int flag=0; //means no swap
+        int lval=INT_MIN , rval=INT_MIN;
+        if(temp*2<=i)
+        {
+            lval=v[temp*i];
+        }
+        if(temp*2+1<=i)
+        {
+            rval=v[temp*2+1];
+        }
+        if(lval>rval) flag=1;
+        else flag=2;
+        if(flag==1 && lval>v[temp])
+        {
+            swap(v[temp],v[temp*2]);
+            temp=temp*2;
+        }
+        else if(flag==2 && rval>v[temp])
+        {
+            swap(v[temp],v[temp*2+1]);
+             temp=temp*2+1;
+        }
+        else
+        {
+            break;
+        }
+    /*    if(v[temp*2]>v[temp*2+1] && v[temp*2]>v[temp])
+        {
+            swap(v[temp*2],v[temp]);
+            temp=temp*2;
+        } */
+    }
+}
+void insert_(vector<int>&v,int i,int val)
+{
+    i++;
+    v[i]=val;
+    int temp=i;
+    while(temp/2>0 && v[temp/2]<v[i])
+    {
+        swap(v[temp],v[temp/2]);
+        temp/=2;
+    }
+}
+int main()
+{
+    vector<int> v(1000);
+    int i=0;
+    insert_(v,i,9);
+    delete_(v,i);
+    cout<<v[1];
+    
+}

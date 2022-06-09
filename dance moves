@@ -1,0 +1,68 @@
+#include <iostream>
+
+using namespace std;
+
+
+
+int main() {
+
+	
+
+	int r;
+
+    cin >> r;
+
+
+
+while(r--) 
+
+{
+
+    int m,n; 
+
+    cin>>m>>n; 
+
+    int c = 0; 
+
+    while(m!=n) 
+
+    {
+
+        if(m<n)
+
+        {
+
+            m+=2; 
+
+            c++; 
+
+        } 
+
+        if(m>n) 
+
+        { 
+
+        m-=1;
+
+        c++;
+
+        }
+
+    }
+
+
+
+
+
+cout<<c<<endl;
+
+}
+
+            
+
+
+
+	return 0;
+
+}
+

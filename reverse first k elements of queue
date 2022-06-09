@@ -1,0 +1,41 @@
+#include "queue.h"
+#include "stack.h"
+
+myQueue reverseK(myQueue queue, int k) {
+//1.Push first k elements in queue in a stack.
+//2.Pop Stack elements and enqueue them at the end of queue
+//3.Dequeue queue elements till "k" and append them at the end of queue  
+    if (!queue.isEmpty()) {
+        myStack stack(k);
+        int count = 0;
+        while (count < k) {
+            stack.push(queue.dequeue());
+            count++;
+        }
+
+        while (!stack.isEmpty()) {
+            queue.enqueue(stack.pop());
+        }
+        int size = queue.getSize();
+
+        for (int i = 0; i < size - k; i++) {
+            queue.enqueue(queue.dequeue());
+        }
+
+    }
+
+    return queue;
+
+}
+int main(){
+    myQueue mQ(5);
+    
+    mQ.enqueue(1);
+    mQ.enqueue(2);
+    mQ.enqueue(3);
+    mQ.enqueue(4);
+    mQ.enqueue(5);
+    mQ=reverseK(mQ,5);
+    mQ.showqueue(); //show queue prepended in the hidden code
+    return 0;
+}

@@ -1,0 +1,31 @@
+//Greedy algo : selected various activities and denoted their start and end points.
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+bool comp(vector<int>&ele1,vector<int>&ele2) //used to compare second element
+{
+    return ele1[1]<ele2[1];
+}
+int main()
+{
+    vector<vector<int>> activities = {{4,6} , {3,7},{5,8},{7,10},{13,15}};
+    sort(activities.begin(),activities.end(),comp);
+    for(int i=0;i<activities.size();i++)
+    {
+        cout<<activities[i][0]<<" "<<activities[i][1]<<endl;
+    }
+    int free=0; //free denotes when i am free from doing an activity
+    int ans=0; //ans denotes how many activities i have completed
+    for(int i=0;i<activities.size();i++)
+    {
+        if(free<=activities[i][0]) //if i am getting free at 5 and activity time also 5 then go ahead.
+        {
+            ans++;
+            free=activities[i][1]; //end time of activity will be free time so second element is in activities[i][1]
+        }
+      
+    }
+      cout<<ans;
+    
+}
+//complexity : O(n logn)
